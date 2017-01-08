@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<link href="http://nec.netease.com/download/framework/reset.css" rel="stylesheet">
+	<style type="text/css">
+		body{
+			font-family: "Microsoft YaHei"
+		}
+		#app {
+			margin: 30px auto;
+			padding: 30px 50px;
+			width: 700px;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<sf-tree-select @change="onChange" :options="options" :defid="defid" :disabled="disabled" ref="sel">
+		</sf-tree-select>
+		<button @click="changeSelect(options[2])">change</button>
+	</div>
+	<script src="https://unpkg.com/vue@2.0.1/dist/vue.js"></script>
+	<script src="./sfTreeSelect.js"></script>
+	<script>
+		var App = Vue.extend({
+			data : function(){
+				return {
+					options:[
+						{id: 0, name: '所有分类'},
+						{name: '分类1', disabled: false, children: [{id: 11, name:'子分类11'}]},
+						{id: 2, name: '分类2', children: [{id: 21, name:'子分类21'}, {id: 22, name:'子分类22', disabled: true}]}
+					],
+					defid: 0,
+					disabled: false
+				}
+			},
+			props : {
+				
+			},
+			components : {
+				'sf-tree-select': sfTreeSelect
+ 			},
+			methods : {
+				onChange: function(option){
+					
+				},
+				changeSelect(option) {
+					this.$refs.sel.select(option);
+				}
+			}
+		});
+
+		new App().$mount('#app');
+	</script>
+</body>
+</html>
