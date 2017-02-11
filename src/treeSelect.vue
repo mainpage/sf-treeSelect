@@ -30,6 +30,7 @@
 	    border-radius: 2px;
 	    box-shadow: 0 1px 2px -3px #000;
 	    cursor: pointer;
+	    font-size: 14px;
 	    .select-sel{
 	        height: 32px;
 	    	line-height: 32px;

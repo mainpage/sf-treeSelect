@@ -23,7 +23,6 @@
 		padding: 0;
 	    overflow-y: auto;
 	    background-color: #fff;
-	    font-size: 14px;
 	}
 	.itm{
 	    line-height: 30px;
