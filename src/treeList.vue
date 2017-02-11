@@ -6,7 +6,7 @@
 				<span class="txt">{{option.name}}</span>
 				<i class="u-icon-tickblue"></i>
 			</div>
-			<div v-else class="itm-label">
+			<div v-else class="itm-label" :style="{ paddingLeft: level * 10 + 'px'}">
 				<span class="txt">{{option.name}}</span>
 				<i class="u-icon-tickblue"></i>
 			</div>
@@ -19,8 +19,11 @@
 	.list{
 	    position: relative;
 	    max-height: 300px;
-	    overflow: hidden;
-	    background-color: #fff
+		margin: 0;
+		padding: 0;
+	    overflow-y: auto;
+	    background-color: #fff;
+	    font-size: 14px;
 	}
 	.itm{
 	    line-height: 30px;
