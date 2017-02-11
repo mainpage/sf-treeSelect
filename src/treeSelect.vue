@@ -149,6 +149,7 @@
 			})
 			this.$on('selectOption', this.onOptionSelect);
 			let getDefOption = (options) => {
+				if(this.defid == undefined) return;
 				for(let i =0; i < options.length; i++){
 					let item = options[i];
 					if(item.id == this.defid){
