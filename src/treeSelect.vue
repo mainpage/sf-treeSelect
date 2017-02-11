@@ -140,14 +140,15 @@
 				this.selected = option;
 				this.$emit('change', this.selected);
 				this.toggle(false);
+			},
+			_onMousedown(event){
+				if(!this.$refs['select-box'].contains(event.target)){
+					this.toggle(false);
+				}
 			}
 		},
 		created() {
-			document.addEventListener('mousedown', (e) => {
-				if(!this.$refs['select-box'].contains(e.target)){
-					this.toggle(false);
-				}
-			})
+			document.addEventListener('mousedown', this._onMousedown.bind(this));
 			this.$on('selectOption', this.onOptionSelect);
 			let getDefOption = (options) => {
 				if(this.defid == undefined) return;
@@ -169,6 +170,9 @@
 					name: this.title || '请选择'
 				}
 			}
+		},
+		destroyed(){
+			document.removeEventListener('mousedown', this._onMousedown.bind(this));
 		}
 	}
 </script>
