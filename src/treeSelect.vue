@@ -141,14 +141,14 @@
 				this.$emit('change', this.selected);
 				this.toggle(false);
 			},
-			_onMousedown(event){
+			_onMousedown: function(event){
 				if(!this.$refs['select-box'].contains(event.target)){
 					this.toggle(false);
 				}
 			}
 		},
 		created() {
-			document.addEventListener('mousedown', this._onMousedown.bind(this));
+			document.addEventListener('mousedown', this._onMousedown);
 			this.$on('selectOption', this.onOptionSelect);
 			let getDefOption = (options) => {
 				if(this.defid == undefined) return;
@@ -172,7 +172,7 @@
 			}
 		},
 		destroyed(){
-			document.removeEventListener('mousedown', this._onMousedown.bind(this));
+			document.removeEventListener('mousedown', this._onMousedown);
 		}
 	}
 </script>
