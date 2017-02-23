@@ -19,7 +19,6 @@
 </template>
 
 <script>
-	import './treeSelect.scss'
 	import sfTreeList from './treeList.vue'
 	export default {
 		name: 'sf-tree-select',
